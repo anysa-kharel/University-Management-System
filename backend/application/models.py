@@ -28,7 +28,7 @@ class Lecture(models.Model):
         return f"Lecture ID: {self.lecture_id}, Time: {self.time}, Room: {self.room}"
 
 class Student(models.Model):
-    student_number = models.IntegerField(primary_key=True)
+    student_number = models.CharField(max_length=10,primary_key=True)
     name = models.CharField(max_length=100)
     
     def __str__(self):
