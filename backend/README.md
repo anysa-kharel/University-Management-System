@@ -17,3 +17,5 @@ python3 manage.py runserver
 ```bash
 python3 manage.py createsuperuser
 ```
+
+## NOTE: IF python3 is not working try replacing python3 by python in every command
