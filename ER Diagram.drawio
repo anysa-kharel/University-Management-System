@@ -1,20 +1,108 @@
-<mxfile host="app.diagrams.net" modified="2023-08-01T07:56:25.669Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="WSh7hpaOkNw8T5Bjgp2G" version="21.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-01T08:16:49.970Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" etag="nSCtSfzEKvisfyo50IZ8" version="21.6.6" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1147" dy="666" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="2208" dy="773" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="CVCtrazBTh_NCcg5P7VE-1" value="&lt;h2&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Lecturer&lt;/b&gt;&lt;/font&gt;&lt;/h2&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="140" y="140" width="110" height="50" as="geometry" />
+          <mxGeometry x="145" y="135" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="CVCtrazBTh_NCcg5P7VE-2" value="&lt;h2&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Lecturer&lt;/b&gt;&lt;/font&gt;&lt;/h2&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="640" y="430" width="110" height="50" as="geometry" />
+          <mxGeometry x="735" y="425" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="CVCtrazBTh_NCcg5P7VE-3" value="&lt;h2&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Lecturer&lt;/b&gt;&lt;/font&gt;&lt;/h2&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="140" y="430" width="110" height="50" as="geometry" />
+          <mxGeometry x="145" y="425" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="CVCtrazBTh_NCcg5P7VE-4" value="&lt;h2&gt;&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Lecturer&lt;/b&gt;&lt;/font&gt;&lt;/h2&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="640" y="140" width="110" height="50" as="geometry" />
+          <mxGeometry x="735" y="135" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endSize=10;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-5" target="CVCtrazBTh_NCcg5P7VE-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-5" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-11" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endSize=22;startSize=22;jumpSize=6;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-5" target="CVCtrazBTh_NCcg5P7VE-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="420" y="370" as="sourcePoint" />
+            <mxPoint x="520" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-15" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="730" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-16" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endSize=10;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-17" target="CVCtrazBTh_NCcg5P7VE-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-17" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="140" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-18" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;direction=west;" vertex="1" parent="1">
+          <mxGeometry x="480" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-35" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endSize=10;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-19" target="CVCtrazBTh_NCcg5P7VE-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="237" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-19" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-20" value="&lt;font style=&quot;font-size: 17px;&quot; face=&quot;Courier New&quot;&gt;Tutors&lt;/font&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-22" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endSize=22;startSize=22;jumpSize=6;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-20" target="CVCtrazBTh_NCcg5P7VE-3">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="610" y="170" as="sourcePoint" />
+            <mxPoint x="830" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-23" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endSize=22;startSize=22;jumpSize=6;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-20" target="CVCtrazBTh_NCcg5P7VE-2">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="620" y="180" as="sourcePoint" />
+            <mxPoint x="840" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-33" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endSize=21;startSize=22;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-16" target="CVCtrazBTh_NCcg5P7VE-3">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-70" y="450" as="sourcePoint" />
+            <mxPoint x="105" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-34" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endSize=22;startSize=22;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-16" target="CVCtrazBTh_NCcg5P7VE-1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="530" y="420" as="sourcePoint" />
+            <mxPoint x="630" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-37" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endSize=22;startSize=22;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-17" target="CVCtrazBTh_NCcg5P7VE-3">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="10" y="270" as="sourcePoint" />
+            <mxPoint x="200" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-38" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endSize=22;startSize=22;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-18" target="CVCtrazBTh_NCcg5P7VE-3">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="340" y="410" as="sourcePoint" />
+            <mxPoint x="165" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-39" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endSize=22;startSize=22;jumpSize=6;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-15" target="CVCtrazBTh_NCcg5P7VE-2">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="610" y="170" as="sourcePoint" />
+            <mxPoint x="745" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CVCtrazBTh_NCcg5P7VE-40" value="" style="fontSize=12;html=1;endArrow=ERmany;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endSize=22;startSize=22;jumpSize=6;" edge="1" parent="1" source="CVCtrazBTh_NCcg5P7VE-15" target="CVCtrazBTh_NCcg5P7VE-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="620" y="180" as="sourcePoint" />
+            <mxPoint x="755" y="180" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
