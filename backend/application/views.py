@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import LecturerSerializer, StudentSerializer
+from .serializers import *
 from rest_framework import viewsets,status
 from .models import *
 from rest_framework.decorators import api_view
@@ -48,3 +48,7 @@ class StudentView(viewsets.ModelViewSet):
     #             serializer.save()
     #         else:
     #             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ModuleView(viewsets.ModelViewSet):
+    queryset = Module.objects.all()
+    serializer_class = ModuleSerializer

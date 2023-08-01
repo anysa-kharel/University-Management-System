@@ -13,6 +13,7 @@ class Lecturer(models.Model):
 class Module(models.Model):
     module_code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=100)
+    organized_by = models.ForeignKey(Lecturer, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
