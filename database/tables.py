@@ -81,7 +81,6 @@ def create_tables():
             CREATE TABLE Tutor (
                 LecturerNumber VARCHAR(10),
                 StudentNumber VARCHAR(10),
-                PRIMARY KEY (LecturerNumber, StudentNumber),
                 FOREIGN KEY (LecturerNumber) REFERENCES Lecturer(LecturerNumber),
                 FOREIGN KEY (StudentNumber) REFERENCES Student(StudentNumber)
             )
