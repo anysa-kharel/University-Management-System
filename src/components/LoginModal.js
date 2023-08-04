@@ -1,11 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginModal(props) {
+
+  const {id,title}=props;
+
+
+
   return (
                 <div className=" flex items-center justify-center  bg-opacity-80">
                 <div className="w-full max-w-md p-8 bg-white border border-gray-300 shadow-lg rounded-lg">
                 <form>
-                <h3 className="text-xl font-semibold mb-4 text-primary-focus  text-center ">Login as {props.title}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary-focus  text-center ">Login as {title}</h3>
 
                 <div className="mb-4">
                 {/* <label htmlFor="user" className="block font-medium mb-2">
@@ -48,12 +54,13 @@ function LoginModal(props) {
                 </div>
 
                 <div className="flex justify-center">
-                <button
+                {/* <button
                 type="login"
                 className="w-full px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded-lg focus:outline-none"
-                >
-                Login
-                </button>
+                > */}
+                <Link to= {`/${id}`} className="w-full px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded-lg focus:outline-none">Login</Link>
+                
+                {/* </button> */}
                 </div>
                 </form>
 
