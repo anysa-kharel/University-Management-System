@@ -1,9 +1,16 @@
 # GETTING START
 ## install the following in your computer
 ```bash
+# for linux/mac
 pip install django
 pip install djangorestframework
 pipenv install djangorestframework django-cors-headers
+
+# windows
+py -m pip install django
+py -m pip install djangorestframework
+pipenv install djangorestframework django-cors-headers
+
 ```
 
 ## To run server
