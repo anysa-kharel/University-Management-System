@@ -43,8 +43,8 @@ class Student(models.Model):
 #         return f"{self.lecture} - Tutor: {self.tutor}"
 
 class Tutor(models.Model):
-    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.lecturer} - Student: {self.student}"

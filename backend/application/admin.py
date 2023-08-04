@@ -25,7 +25,7 @@ admin.site.register(Lecture, LectureAdmin)
 
 
 class TutorAdmin(admin.ModelAdmin):
-    list = ('lecturer_number','student_number')
+    list = ('student_number','lecturer_number')
 
 admin.site.register(Tutor, TutorAdmin)
 

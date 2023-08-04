@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .serializers import *
 from rest_framework import viewsets,status
 from .models import *
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
 
@@ -29,16 +29,22 @@ class TutorView(viewsets.ModelViewSet):
     queryset = Tutor.objects.all()
     serializer_class = TutorSerializer
 
-    # def post(self, request, *args, **kwargs):
-    #     serializer = TutorSerializer(data=request.data, many =True)
-    #     serializer.is_valid(raise_exception=True)
-    #     validated_data = serializer._validated_data.pop()
+    def post(self, request, *args, **kwargs):
+        tutors_data = request.data.get("tutors", [])
         
-    #     tutor_entry_data = validated_data['lecturer','student']
-    #     tutor_entry_model = Tutor(**tutor_entry_data)
-    #     tutor_entry_model.save()
-
-    #     return Response({'message':'Success'})
+        if not isinstance(tutors_data, list):
+            return Response(
+                {"detail": "Invalid data format. 'tutors' should be a list."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        serializer = TutorSerializer(data=tutors_data, many=True)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class RegistrationView(viewsets.ModelViewSet):
     queryset = Registration.objects.all()
