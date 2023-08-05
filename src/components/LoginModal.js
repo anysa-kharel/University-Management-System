@@ -1,9 +1,34 @@
 import React from 'react';
+<<<<<<< HEAD
+import { useState } from 'react';
+import Dashboard from "./Dashboard";
+=======
+>>>>>>> 38b4184b0f2f4f385978762bc607c806c135ba05
 import { Link } from 'react-router-dom';
 
 function LoginModal(props) {
 
+<<<<<<< HEAD
+const [user,setUser]=useState("");
+const [pass,setPass]=useState("");
+
+const handleClick = () =>
+{
+  if(user==="123" && pass==="123")
+{
+//  <Link to="/dashboard"/>
+<Dashboard/>
+console.log("Correct User Password");
+}
+else{
+  console.log("Incorrect");  
+}
+
+}
+
+=======
   const {id,title}=props;
+>>>>>>> 38b4184b0f2f4f385978762bc607c806c135ba05
 
 
 
@@ -21,6 +46,7 @@ function LoginModal(props) {
                 type="username"
                 id="user"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none bg-transparent"
+                onChange={(e)=>setUser(e.currentTarget.value)}
                 placeholder="Username"
                 />
                 </div>
@@ -33,6 +59,7 @@ function LoginModal(props) {
                 type="password"
                 id="password"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none bg-transparent"
+                onChange={(e)=>setPass(e.currentTarget.value)}
                 placeholder="Password"
                 />
                 </div>
@@ -57,10 +84,17 @@ function LoginModal(props) {
                 {/* <button
                 type="login"
                 className="w-full px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded-lg focus:outline-none"
+<<<<<<< HEAD
+                onClick={handleClick}
+                >
+                Login
+                </button>
+=======
                 > */}
                 <Link to= {`/${id}`} className="w-full px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded-lg focus:outline-none">Login</Link>
                 
                 {/* </button> */}
+>>>>>>> 38b4184b0f2f4f385978762bc607c806c135ba05
                 </div>
                 </form>
 
