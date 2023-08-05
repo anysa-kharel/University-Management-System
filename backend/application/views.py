@@ -78,7 +78,7 @@ def student_list(request):
 def student_detail(request, pk):
 
     try:
-        part = Student.objects.get(pk=pk)
+        part = Student.objects.get(student_id=pk)
     except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
