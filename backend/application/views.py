@@ -27,7 +27,7 @@ class LecturerView(viewsets.ModelViewSet):
     def put(self,request,*args, **kwargs):
         pk = self.kwargs.get('pk')
         lecturers = self.get_object(pk)
-        serializer =LecturerSerializer(lecturers, data=request.data, partial = True )
+        serializer =LecturerSerializer(lecturers, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -110,23 +110,23 @@ def student_list(request):
 def student_detail(request, pk):
 
     try:
-        part = Student.objects.get(student_id=pk)
+        student = Student.objects.get(student_id=pk)
     except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     if request.method == 'GET':
-        serializer = StudentSerializer(part)
+        serializer = StudentSerializer(student)
         return Response(serializer.data)
     
     elif request.method == 'PUT':
-        serializer = StudentSerializer(part, data = request.data, partial = True)
+        serializer = StudentSerializer(student, data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     elif request.method == 'DELETE':
-        part.delete()
+        student.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
