@@ -10,12 +10,6 @@ class LecturerView(viewsets.ModelViewSet):
     queryset = Lecturer.objects.all()
     serializer_class = LecturerSerializer
 
-    def get_serializer_class(self):
-        if self.action == 'create' and isinstance(self.request.data, list):
-            return LecturerEntrySerializer
-        return LecturerSerializer
-
-
 class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
@@ -54,3 +48,11 @@ class TutorView(viewsets.ModelViewSet):
 class RegistrationView(viewsets.ModelViewSet):
     queryset = Registration.objects.all()
     serializer_class = RegistrationSerializer
+
+# class DepartmentView(viewsets.ModelViewSet):
+#     queryset = Department.objects.all()
+#     serializer_class = DepartmentSerializer
+
+class SemesterView(viewsets.ModelViewSet):
+    queryset = Semester.objects.all()
+    serializer_class = SemesterSerializer

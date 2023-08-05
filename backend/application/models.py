@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Lecturer(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True )
-    lecturer_number = models.CharField(max_length=10, unique=True)
+    id = models.IntegerField( unique=True )
+    lecturer_number = models.CharField(max_length=10,primary_key=True ,unique=True)
     name = models.CharField(max_length=100)
     room_number = models.CharField(max_length=10)
 
@@ -12,25 +12,34 @@ class Lecturer(models.Model):
         return self.name
 
 class Module(models.Model):
-    module_code = models.CharField(max_length=10, primary_key=True,unique=True)
+    module_id = models.IntegerField(unique=True)
+    module_code = models.CharField(max_length=20,primary_key=True,unique=True)
     name = models.CharField(max_length=100)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
 
-class Semester(models.Model):
-    sem = models.IntegerField(primary_key=True)
-    module_code = models.ForeignKey(Module, on_delete=models.CASCADE)
 
+# class Department(models.Model):
+#     department_name = models.CharField(max_length=50,unique=True,primary_key=True)
+#     def __str__(self):
+#         return self.department_name
+
+class Semester(models.Model):
+    department_name = models.CharField(max_length=50)
+    sem = models.IntegerField(primary_key=True)
+    module_code = models.ForeignKey(Module, on_delete=models.CASCADE,related_name='Semester_Module')
     def __str__(self):
-        return f"Semester: {self.sem}, Module: {self.module_code}"
+        return f"Semester: {self.sem},Department: {self.department_name}, Module: {self.module_code}"
+
+
 
 class Lecture(models.Model):
-    lecture_id = models.IntegerField(max_length=10, primary_key=True,unique=True) 
+    lecture_id = models.IntegerField(primary_key=True,unique=True) 
     time = models.CharField(max_length=10)
     room = models.CharField(max_length=10)
-    date = models.DateField()
+    day = models.CharField(max_length=10)
     lecturer_id = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
     module_code = models.ForeignKey(Module, on_delete=models.CASCADE)
 
@@ -38,8 +47,9 @@ class Lecture(models.Model):
         return f"Lecture ID: {self.lecture_id}, Time: {self.time}, Room: {self.room}"
 
 class Student(models.Model):
-    student_number = models.IntegerField(primary_key=True,unique=True)
+    student_number = models.CharField(max_length=10,primary_key=True,unique=True)
     name = models.CharField(max_length=100)
+    student_id = models.IntegerField( unique=True )
     
     def __str__(self):
         return self.name
