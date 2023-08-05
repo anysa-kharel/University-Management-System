@@ -16,5 +16,5 @@ router.register(r'semester', SemesterView, basename='semester')
 urlpatterns = [
     path('',include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_famework')),
-    path('lecturer/update/<int:pk>/',LecturerView.as_view({'get': 'get', 'put': 'put', 'delete': 'delete'}), name='lecturer-detail'),
+    path('lecturer/update/<int:pk>/',LecturerView.as_view({'get': 'get', 'put': 'update', 'delete': 'delete'}), name='lecturer-detail'),
 ]

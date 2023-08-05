@@ -3,38 +3,61 @@ from .serializers import *
 from rest_framework import viewsets,status
 from django.http import Http404
 from .models import *
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
-
 class LecturerView(viewsets.ModelViewSet):
     queryset = Lecturer.objects.all()
     serializer_class = LecturerSerializer
 
-    def get_object(self,pk):
-        try:
-            return Lecturer.objects.get(pk=pk)
-        except Lecturer.DoesNotExist:
-            raise Http404
+    # def get_object(self,pk):
+    #     try:
+    #         return Lecturer.objects.get(pk=pk)
+    #     except Lecturer.DoesNotExist:
+    #         raise Http404
 
 
-    def get(self,request, pk = None, format = None):
-        lecturers = self.get_object(pk)
-        serializer = LecturerSerializer(lecturers)
-        return Response(serializer.data)
+    # def get(self,request, pk = None, format = None):
+    #     lecturers = self.get_object(pk)
+    #     serializer = LecturerSerializer(lecturers)
+    #     return Response(serializer.data)
     
-    def put(self,request,pk = None,format = None):
-        lecturers = self.get_object(pk)
-        serializer =LecturerSerializer(lecturers, data=request.data )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # def put(self,request,pk,format = None):
+        
+    #     lecturers = self.get_object(pk)
+    #     serializer =LecturerSerializer(lecturers, data=request.data, partial = True )
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def delete(self,request,pk = None,format = None):
         lecturers = self.get_object(pk)
         lecturers.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @api_view(['GET','POST'])
+    def lecturer_detail(request,pk, format = None):
+        try:
+            lecturer = Lecturer.objects.get(pk)
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        if request.method == 'GET':
+            serializer = LecturerSerializer(lecturer)
+            return Response(serializer.data)
+
+        elif request.method == 'PUT':
+            serializer =LecturerSerializer(lecturer, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        elif request.method == 'DELETE':
+            lecturer.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
 class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
