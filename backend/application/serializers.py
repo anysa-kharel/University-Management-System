@@ -6,6 +6,7 @@ class LecturerSerializer(serializers.ModelSerializer):
         model = Lecturer
         fields = ('lecturer_number', 'name', 'room_number')
 
+
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
@@ -22,6 +23,7 @@ class LectureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecture
         fields = '__all__'
+
 
 class TutorSerializer(serializers.ModelSerializer):
     class Meta:

@@ -24,6 +24,7 @@ class Lecture(models.Model):
     room = models.CharField(max_length=10)
     date = models.DateField()
     delivered_by = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    module_code = models.ForeignKey(Module, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Lecture ID: {self.lecture_id}, Time: {self.time}, Room: {self.room}"
