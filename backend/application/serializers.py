@@ -11,6 +11,7 @@ class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
         fields = '__all__'
+    # lecturer = serializers.SlugRelatedField(slug_field='lecturer_number', queryset=Lecturer.objects.all())
 
 
 class StudentSerializer(serializers.ModelSerializer):
