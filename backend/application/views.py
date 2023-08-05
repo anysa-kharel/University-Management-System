@@ -18,12 +18,12 @@ class LecturerView(viewsets.ModelViewSet):
             raise Http404
 
 
-    def get(self,request, pk, format = None):
+    def get(self,request, pk = None, format = None):
         lecturers = self.get_object(pk)
         serializer = LecturerSerializer(lecturers)
         return Response(serializer.data)
     
-    def put(self,request,pk,format = None):
+    def put(self,request,pk = None,format = None):
         lecturers = self.get_object(pk)
         serializer =LecturerSerializer(lecturers, data=request.data )
         if serializer.is_valid():
@@ -31,10 +31,12 @@ class LecturerView(viewsets.ModelViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def delete(self,request,pk,format = None):
+    def delete(self,request,pk = None,format = None):
         lecturers = self.get_object(pk)
         lecturers.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 
 class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
@@ -82,3 +84,14 @@ class RegistrationView(viewsets.ModelViewSet):
 class SemesterView(viewsets.ModelViewSet):
     queryset = Semester.objects.all()
     serializer_class = SemesterSerializer
+
+
+
+
+
+
+
+
+   
+    
+   

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import AddLect from "./AddLect";
+import { Link } from 'react-router-dom';
 
 
 class LectTab extends Component{
@@ -36,9 +37,14 @@ fetchData(){
         const rows=lectData.map((e)=>
         <tr>
         {/* <th>1</th> */}
+        <td>{e.id}</td>
         <td>{e.lecturer_number}</td>
         <td>{e.name}</td>
         <td>{e.room_number}</td>
+        <td>
+                    <Link to={'updatel/'+e.id} className="btn bg-primary text-white mr-2">Update</Link>
+                    {/* <button onClick={()=>this.deleteData(emp.id)} className="btn btn-danger">Delete</button> */}
+                </td>
       </tr>
 
 
@@ -72,9 +78,11 @@ fetchData(){
     <thead>
       <tr>
         {/* <th></th> */}
+        <th>S.N.</th>
         <th>Lecturer No</th>
         <th>Name</th>
         <th>Room No</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>

@@ -7,6 +7,7 @@ import StuTab from './components/StuTab'
 import Dashboardstudent from './components/Dashboard/Dashboardstudent';
 import Dashboardadmin from './components/Dashboard/Dashboardadmin';
 import Dashboardteacher from './components/Dashboard/Dashboardteacher';
+import UpdateLect from './components/UpdateLect'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
+   <Route path="/updatel/:id" component={UpdateLect} />
 </Routes>
 
    </>
