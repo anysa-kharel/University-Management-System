@@ -7,6 +7,7 @@ import StuTab from './components/StuTab'
 import Dashboardstudent from './components/Dashboard/Dashboardstudent';
 import Dashboardadmin from './components/Dashboard/Dashboardadmin';
 import Dashboardteacher from './components/Dashboard/Dashboardteacher';
+import AppRoutes from './components/pages/AppRoutes'
 
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
    <Route exact path="/3" element={<Dashboardteacher/>}/>
 </Routes>
 
+
+<AppRoutes/>
    </>
 
   );
