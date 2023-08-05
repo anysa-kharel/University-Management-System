@@ -1,6 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
+import Dashboard from "./Dashboard";
+import { Link } from 'react-router-dom';
 
 function LoginModal(props) {
+
+const [user,setUser]=useState("");
+const [pass,setPass]=useState("");
+
+const handleClick = () =>
+{
+  if(user==="123" && pass==="123")
+{
+//  <Link to="/dashboard"/>
+<Dashboard/>
+console.log("Correct User Password");
+}
+else{
+  console.log("Incorrect");  
+}
+
+}
+
+
+
+
   return (
                 <div className=" flex items-center justify-center  bg-opacity-80">
                 <div className="w-full max-w-md p-8 bg-white border border-gray-300 shadow-lg rounded-lg">
@@ -15,6 +39,7 @@ function LoginModal(props) {
                 type="username"
                 id="user"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none bg-transparent"
+                onChange={(e)=>setUser(e.currentTarget.value)}
                 placeholder="Username"
                 />
                 </div>
@@ -27,6 +52,7 @@ function LoginModal(props) {
                 type="password"
                 id="password"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none bg-transparent"
+                onChange={(e)=>setPass(e.currentTarget.value)}
                 placeholder="Password"
                 />
                 </div>
@@ -51,6 +77,7 @@ function LoginModal(props) {
                 <button
                 type="login"
                 className="w-full px-4 py-2 bg-primary hover:bg-primary-focus text-white rounded-lg focus:outline-none"
+                onClick={handleClick}
                 >
                 Login
                 </button>
