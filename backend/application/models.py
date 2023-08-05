@@ -13,12 +13,13 @@ class Lecturer(models.Model):
 class Module(models.Model):
     module_code = models.CharField(max_length=10, primary_key=True)
     name = models.CharField(max_length=100)
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.name
 
 class Lecture(models.Model):
-    lecture_id = models.AutoField(primary_key=True)
+    lecture_id = models.CharField(max_length=10, primary_key=True) 
     time = models.CharField(max_length=10)
     room = models.CharField(max_length=10)
     date = models.DateField()
@@ -34,25 +35,25 @@ class Student(models.Model):
     def __str__(self):
         return self.name
 
-class LectureTutor(models.Model):
-    lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
-    tutor = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+# class LectureTutor(models.Model):
+#     lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
+#     tutor = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f"{self.lecture} - Tutor: {self.tutor}"
+#     def __str__(self):
+#         return f"{self.lecture} - Tutor: {self.tutor}"
 
 class Tutor(models.Model):
-    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.lecturer} - Student: {self.student}"
 
 class Registration(models.Model):
-    registration_id = models.AutoField(primary_key=True)
+    registration_id = models.CharField(max_length=10, primary_key=True)
+    registration_date = models.DateField(auto_now=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     module = models.ForeignKey(Module, on_delete=models.CASCADE)
-    registration_date = models.DateField()
 
     def __str__(self):
         return f"{self.student} - Module: {self.module} - Date: {self.registration_date}"
