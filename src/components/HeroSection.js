@@ -52,7 +52,7 @@ const HeroSection = () => {
                       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                       <form method="dialog" className="modal-box">
                       {/* <h3 className="font-bold text-lg">Hello!</h3> */}
-                      <p className="py-4"><LoginModal title={"Student"}/></p>
+                      <p className="py-4"><LoginModal title={"Student"} id={1}/></p>
                       <div className="modal-action">
                       {/* if there is a button in form, it will close the modal */}
                       <button className="btn">Close</button>
@@ -86,7 +86,7 @@ const HeroSection = () => {
               <dialog id="my_modal_4" className="modal modal-bottom sm:modal-middle">
               <form method="dialog" className="modal-box">
               {/* <h3 className="font-bold text-lg">Hello!</h3> */}
-              <p className="py-4"><LoginModal title={"Admin"}/></p>
+              <p className="py-4"><LoginModal title={"Admin"} id={2}/></p>
               <div className="modal-action">
               {/* if there is a button in form, it will close the modal */}
               <button className="btn">Close</button>
@@ -119,7 +119,7 @@ const HeroSection = () => {
               <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
               <form method="dialog" className="modal-box">
               {/* <h3 className="font-bold text-lg">Hello!</h3> */}
-              <p className="py-4"><LoginModal title={"Teacher"}/></p>
+              <p className="py-4"><LoginModal title={"Teacher"} id={3}/></p>
               <div className="modal-action">
               {/* if there is a button in form, it will close the modal */}
               <button className="btn">Close</button>
