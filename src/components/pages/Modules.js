@@ -8,9 +8,9 @@ import { MdOutlineLibraryBooks } from 'react-icons/md';
 
 function Modules() {
   const options = [
-    { label: 'Option 1', value: 'option1' },
-    { label: 'Option 2', value: 'option2' },
-    { label: 'Option 3', value: 'option3' },
+    { label: 'Semester-I', value: 'option1' },
+    { label: 'Semester-II', value: 'option2' },
+    { label: 'Semester-III', value: 'option3' },
   ];
 
   const [selectedOption, setSelectedOption] = useState('');
@@ -31,7 +31,28 @@ function Modules() {
           selectedOption={selectedOption}
           onChange={handleOptionChange}
         />
-        {/* Add other faculties */}
+         <Computer
+          icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
+          title={"Computer Faculty"}
+          options={options}
+          selectedOption={selectedOption}
+          onChange={handleOptionChange}
+        />
+         <Geomatics
+          icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
+          title={"Geomatics Faculty"}
+          options={options}
+          selectedOption={selectedOption}
+          onChange={handleOptionChange}
+        />
+         <Automobile
+          icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
+          title={"Automobile Faculty"}
+          options={options}
+          selectedOption={selectedOption}
+          onChange={handleOptionChange}
+        />
+        
       </Space>
     </div>
   );
@@ -49,13 +70,73 @@ function Electronics({ title, icon, options, selectedOption, onChange }) {
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
-          ))}
+          ))
+          }
         </select>
       </Space>
     </Card>
   );
 }
 
-// Other Faculty components here
+function Computer({ title, icon, options, selectedOption, onChange }) {
+  return (
+    <Card>
+      <Space direction='horizontal'>
+        {icon}
+        <Statistic title={title} />
+        <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
+          <option value="">Select an option</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))
+          }
+        </select>
+      </Space>
+    </Card>
+  );
+}
+
+function Geomatics({ title, icon, options, selectedOption, onChange }) {
+  return (
+    <Card>
+      <Space direction='horizontal'>
+        {icon}
+        <Statistic title={title} />
+        <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
+          <option value="">Select an option</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))
+          }
+        </select>
+      </Space>
+    </Card>
+  );
+}
+
+function Automobile({ title, icon, options, selectedOption, onChange }) {
+  return (
+    <Card>
+      <Space direction='horizontal'>
+        {icon}
+        <Statistic title={title} />
+        <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
+          <option value="">Select an option</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))
+          }
+        </select>
+      </Space>
+    </Card>
+  );
+}
+
 
 export default Modules;
