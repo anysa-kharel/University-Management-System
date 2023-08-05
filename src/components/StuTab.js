@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import AddStudent from './AddStudent';
 
 
-class LectTab extends Component{
+class StuTab extends Component{
 
 constructor(){
     super();
@@ -92,4 +92,4 @@ fetchData(){
   )
 }}
 
-export default LectTab
+export default StuTab

@@ -13,7 +13,7 @@ constructor(){
 
 
 fetchData(){
-    fetch('http://127.0.0.1:8000/lecturer')
+    fetch('http://127.0.0.1:8000/lecturer/')
     .then(response=>response.json())
     .then((data)=>{
     this.setState({data:data});
