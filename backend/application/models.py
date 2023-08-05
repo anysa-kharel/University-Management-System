@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Lecturer(models.Model):
-    id = models.IntegerField( unique=True )
     lecturer_number = models.CharField(max_length=10,primary_key=True ,unique=True)
+    id = models.IntegerField()
     name = models.CharField(max_length=100)
     room_number = models.CharField(max_length=10)
 
@@ -12,8 +12,8 @@ class Lecturer(models.Model):
         return self.name
 
 class Module(models.Model):
-    module_id = models.IntegerField(unique=True)
     module_code = models.CharField(max_length=20,primary_key=True,unique=True)
+    module_id = models.IntegerField(unique=True)
     name = models.CharField(max_length=100)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.SET_NULL, null=True)
 
@@ -30,6 +30,7 @@ class Semester(models.Model):
     department_name = models.CharField(max_length=50)
     sem = models.IntegerField(primary_key=True)
     module_code = models.ForeignKey(Module, on_delete=models.CASCADE,related_name='Semester_Module')
+
     def __str__(self):
         return f"Semester: {self.sem},Department: {self.department_name}, Module: {self.module_code}"
 
@@ -48,8 +49,8 @@ class Lecture(models.Model):
 
 class Student(models.Model):
     student_number = models.CharField(max_length=10,primary_key=True,unique=True)
-    name = models.CharField(max_length=100)
     student_id = models.IntegerField( unique=True )
+    name = models.CharField(max_length=100)
     
     def __str__(self):
         return self.name
@@ -64,11 +65,13 @@ class Student(models.Model):
 class Tutor(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
+    tutor_id = models.IntegerField()
 
     def __str__(self):
         return f"{self.lecturer} - Student: {self.student}"
 
 class Registration(models.Model):
+    
     registration_id = models.IntegerField(primary_key=True,unique=True)
     registration_date = models.DateField(auto_now=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
