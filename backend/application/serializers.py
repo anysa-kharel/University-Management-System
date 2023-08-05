@@ -6,14 +6,10 @@ class LecturerSerializer(serializers.ModelSerializer):
         model = Lecturer
         fields = '__all__'
 
-class LecturerEntrySerializer(serializers.ModelSerializer):
-    child = LecturerSerializer()
-
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
         fields = '__all__'
-    # lecturer = serializers.SlugRelatedField(slug_field='lecturer_number', queryset=Lecturer.objects.all())
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -37,4 +33,14 @@ class TutorSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
+        fields = '__all__'
+
+# class DepartmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Department
+#         fields = '__all__'
+
+class SemesterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Semester
         fields = '__all__'
