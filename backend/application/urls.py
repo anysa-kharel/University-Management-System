@@ -15,7 +15,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_famework')),
 
     path('lecturer/',views.lecturer_list,name='lecturer_list'),
-    path('lecturer/update/<int:pk>',views.lecturer_detail, name = 'lecturer_detail'),
+    path('lecturer/update/<int:pk>/',views.lecturer_detail, name = 'lecturer_detail'),
     path('student/', views.student_list, name = 'student_list'),
-    path('student/update/<int:pk>',views.student_detail, name='student_detail'),
+    path('student/update/<int:pk>/',views.student_detail, name='student_detail'),
 ]
