@@ -27,20 +27,17 @@ class Module(models.Model):
 #         return self.department_name
 
 class Semester(models.Model):
-    sem = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)
+    sem = models.IntegerField()
     faculty = models.CharField(max_length=30)
     module_code1 = models.ForeignKey(Module ,related_name='Semester_Module1', on_delete=models.CASCADE)
     module_code2 = models.ForeignKey(Module ,related_name='Semester_Module2', on_delete=models.CASCADE)
     module_code3 = models.ForeignKey(Module ,related_name='Semester_Module3', on_delete=models.CASCADE)
-    module_code4 = models.ForeignKey(Module ,related_name='Semester_Module4', on_delete=models.CASCADE)
-    module_code5 = models.ForeignKey(Module ,related_name='Semester_Module5', on_delete=models.CASCADE)
-    
-# address1 = models.ForeignKey(Address, verbose_name=_("Address1"),related_name="Address1", null=True, blank=True,on_delete=models.SET_NULL)
 
-# address2 = models.ForeignKey(Address, verbose_name=_("Address2"),related_name="Address2", null=True, blank=True,on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f"Semester: {self.sem}"
+        return f"Semester: {self.sem},{self.faculty}"
+
 
 
 
@@ -61,7 +58,7 @@ class Student(models.Model):
     name = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.name
+        return f"{self.name},{self.student_id}"
 
 # class LectureTutor(models.Model):
 #     lecture = models.ForeignKey(Lecture, on_delete=models.CASCADE)
@@ -87,3 +84,15 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.student} - Module: {self.module} - Date: {self.registration_date}"
+    
+
+class Form(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    module_code1 = models.ForeignKey(Module ,related_name='Form_Module1', on_delete=models.CASCADE)
+    module_code2 = models.ForeignKey(Module ,related_name='Form_Module2', on_delete=models.CASCADE)
+    module_code3 = models.ForeignKey(Module ,related_name='Form_Module3', on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f"{self.student}"
