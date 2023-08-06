@@ -10,10 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 function Sidebaradmin() {
 
   const menus = [
-    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
+    { name: "Dashboard", link: "#", icon: MdOutlineDashboard },
     { name: "Student", link: "/stutab", icon: PiStudent },
     { name: "Modules", link: "/modules", icon: RiSoundModuleLine },
-    { name: "Teachers", link: "/lectab", icon: GiTeacher, margin: true },
+    { name: "Teachers", link: "/lecttab", icon: GiTeacher, margin: true },
    
   ];
   const [open, setOpen] = useState(true);
