@@ -4,7 +4,7 @@ from django.db import models
 
 class Lecturer(models.Model):
     lecturer_number = models.CharField(max_length=10,primary_key=True ,unique=True)
-    id = models.IntegerField()
+    id = models.IntegerField( unique= True )
     name = models.CharField(max_length=100)
     room_number = models.CharField(max_length=10)
 

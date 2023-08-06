@@ -35,11 +35,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
         model = Registration
         fields = '__all__'
 
-# class DepartmentSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Department
-#         fields = '__all__'
-
 class SemesterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Semester
