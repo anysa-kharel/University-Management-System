@@ -3,17 +3,17 @@ from .serializers import *
 from rest_framework import viewsets,status
 from django.http import Http404
 from .models import *
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
-
 class LecturerView(viewsets.ModelViewSet):
     queryset = Lecturer.objects.all()
     serializer_class = LecturerSerializer
 
     def get_object(self,pk):
         try:
-            return Lecturer.objects.get(pk=pk)
+            return Lecturer.objects.get(id=pk)
         except Lecturer.DoesNotExist:
             raise Http404
 
@@ -23,9 +23,11 @@ class LecturerView(viewsets.ModelViewSet):
         serializer = LecturerSerializer(lecturers)
         return Response(serializer.data)
     
-    def put(self,request,pk = None,format = None):
+
+    def put(self,request,*args, **kwargs):
+        pk = self.kwargs.get('pk')
         lecturers = self.get_object(pk)
-        serializer =LecturerSerializer(lecturers, data=request.data )
+        serializer =LecturerSerializer(lecturers, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -36,11 +38,97 @@ class LecturerView(viewsets.ModelViewSet):
         lecturers.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    # @api_view(['GET','POST'])
+    # def lecturer_detail(request,pk, format = None):
+    #     try:
+    #         lecturer = Lecturer.objects.get(pk)
+    #     except:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
+    #     if request.method == 'GET':
+    #         serializer = LecturerSerializer(lecturer)
+    #         return Response(serializer.data)
+
+    #     elif request.method == 'PUT':
+    #         serializer =LecturerSerializer(lecturer, data=request.data)
+    #         if serializer.is_valid():
+    #             serializer.save()
+    #             return Response(serializer.data)
+    #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+    #     elif request.method == 'DELETE':
+    #         lecturer.delete()
+    #         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-class StudentView(viewsets.ModelViewSet):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+# class StudentView(viewsets.ModelViewSet):
+#     queryset = Student.objects.all()
+#     serializer_class =StudentSerializer
+
+#     def get_object(self,pk):
+#         try:
+#             return Student.objects.get(student_id=pk)
+#         except Student.DoesNotExist:
+#             raise Http404
+
+
+#     def get(self,request, pk = None, format = None):
+#         student = self.get_object(pk)
+#         serializer = StudentSerializer(student)
+#         return Response(serializer.data)
+    
+
+#     def put(self,request,pk=None,format = None):
+        
+#         student = self.get_object(pk)
+#         serializer =StudentSerializer(student, data=request.data, partial = True )
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+#     def delete(self,request,pk,format = None):
+#         student = self.get_object(pk)
+#         student.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+@api_view(['GET', 'POST'])
+def student_list(request):
+
+    if request.method == 'GET':
+        students = Student.objects.all()
+        serializer = StudentSerializer(students, many=True)
+        return Response(serializer.data)
+    
+    elif request.method == 'POST':
+        serializer = StudentSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['GET','PUT','DELETE'])
+def student_detail(request, pk):
+
+    try:
+        student = Student.objects.get(student_id=pk)
+    except Student.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = StudentSerializer(student)
+        return Response(serializer.data)
+    
+    elif request.method == 'PUT':
+        serializer = StudentSerializer(student, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        student.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class ModuleView(viewsets.ModelViewSet):
     queryset = Module.objects.all()

@@ -42,7 +42,7 @@ fetchData(){
         <td>{e.name}</td>
         <td>{e.room_number}</td>
         <td>
-                    <Link to={'updatel/'+e.id} className="btn bg-primary text-white mr-2">Update</Link>
+                    <Link to={'update/'+e.id} className="btn bg-primary text-white mr-2">Update</Link>
                     {/* <button onClick={()=>this.deleteData(emp.id)} className="btn btn-danger">Delete</button> */}
                 </td>
       </tr>

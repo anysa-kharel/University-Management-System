@@ -15,12 +15,9 @@ export default class UpdateLect extends Component {
   }
 
   componentDidMount() {
-    // Get id from props
-    const id = this.props.match.params.id;
-    this.setState({ id }, () => {
-      // Fetch data after setting id
+   
       this.fetchData();
-    });
+ 
   }
 
   // Input Change Handler
@@ -32,8 +29,8 @@ export default class UpdateLect extends Component {
 
   // Submit Form
   submitForm() {
-    const { id } = this.state;
-    fetch(`http://127.0.0.1:8000/lecturer/${id}/`, {
+    var id=this.props.match.params.id;
+    fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/', {
       method: 'PUT',
       body: JSON.stringify(this.state),
       headers: {
@@ -45,8 +42,8 @@ export default class UpdateLect extends Component {
   }
 
   fetchData() {
-    const { id } = this.state;
-    fetch(`http://127.0.0.1:8000/lecturer/${id}/`)
+    var id=this.props.match.params.id;
+    fetch('http://127.0.0.1:8000/lecturer/update/'+id)
       .then((response) => response.json())
       .then((data) => {
         this.setState({

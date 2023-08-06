@@ -22,7 +22,7 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
-   <Route path="/updatel/:id" component={UpdateLect} />
+   <Route exact path="/update/:id" component={UpdateLect} />
 </Routes>
 
    </>
