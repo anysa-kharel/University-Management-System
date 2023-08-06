@@ -112,6 +112,69 @@ class SemesterView(viewsets.ModelViewSet):
     serializer_class = SemesterSerializer
 
 
+
+@api_view(['GET', 'POST'])
+def semester_list(request):
+
+    if request.method == 'GET':
+        semester = Semester.objects.all()
+        serializer = SemesterSerializer(semester, many=True)
+        return Response(serializer.data)
+    
+    elif request.method == 'POST':
+        serializer = SemesterSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET','PUT','DELETE'])
+def semester_detail(request ,pk):
+
+    try:
+        faculty = Semester.objects.filter(faculty=pk)
+
+    except Semester.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = SemesterSerializer(faculty, many = True)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = SemesterSerializer(faculty, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        serializer.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET','PUT','DELETE'])
+def semester_details(request,faculty ,pk):
+
+    try:
+        semester = Semester.objects.filter(faculty = faculty, sem=pk)
+
+    except Semester.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = SemesterSerializer(semester, many = True)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = SemesterSerializer(semester, data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        serializer.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
 @api_view(['GET', 'POST'])
 def form_list(request):
 
