@@ -28,25 +28,17 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
-<<<<<<< HEAD
-   <Route exact path='/modules' element={<Modules/>}></Route> 
-   <Route  exact path="/semester1" element={<SemesterI/>}></Route>
-=======
-   <Route exact path="/modules" component={Modules} />
-   <Route path="/semester1" component={SemesterI} />
->>>>>>> 6e26da9db8aadf3ce112990d332c727de5c134c7
-   <Route path="/semester2" component={SemesterII} />
-   <Route path="/semester3" component={SemesterIII} />
+   <Route exact path="/modules" element={<Modules/>} />
+   <Route path="/semester1" element={<SemesterI/>} />
+   <Route path="/semester2" element={<SemesterII/>} />
+   <Route path="/semester3" element={<SemesterIII/>} />
    
    <Route exact path="/update/:id" element={<UpdateLect/>} />
    <Route exact path="/updates/:id" element={<UpdateStu/>} />
 </Routes>
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> 6e26da9db8aadf3ce112990d332c727de5c134c7
    </>
 
   );

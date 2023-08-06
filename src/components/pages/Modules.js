@@ -82,12 +82,12 @@ function Electronics({ title, icon, options, selectedOption, onChange }) {
             value={field}
             onChange={(e) => setField(e.currentTarget.value)}
           >
-            <option value="">Sector, Interested field</option>
-            <option value="Environment">Environment</option>
-            <option value="Business">Business</option>
-            <option value="Public health">Public health</option>
-            <option value="Technology">Technology</option>
-            <option value="Others">Others</option>
+            <option value="">Select Semester</option>
+            <option value="Environment">Semester 1</option>
+            <option value="Business">Semester 2</option>
+            <option value="Public health">Semester 3</option>
+            <option value="Technology">Semester 4</option>
+            <option value="Others">Semester 5</option>
           </select>
           
           <Link to="/semester1">
@@ -106,7 +106,7 @@ function Computer({ title, icon, options, selectedOption, onChange }) {
         {icon}
         <Statistic title={title} />
         <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
-          <option value="">Select an option</option>
+          <option value="">Select Semester</option>
         
         </select>
       </Space>
@@ -121,7 +121,7 @@ function Geomatics({ title, icon, options, selectedOption, onChange }) {
         {icon}
         <Statistic title={title} />
         <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
-          <option value="">Select an option</option>
+          <option value="">Select Semester</option>
        
         </select>
       </Space>
@@ -136,7 +136,7 @@ function Automobile({ title, icon, options, selectedOption, onChange }) {
         {icon}
         <Statistic title={title} />
         <select value={selectedOption} onChange={(event) => onChange(event.target.value)}>
-          <option value="">Select an option</option>
+          <option value="">Select Semester</option>
          
         </select>
       </Space>
