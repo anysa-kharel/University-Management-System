@@ -1,16 +1,21 @@
 from django.urls import path,include
 from rest_framework import routers
-from .views import *
+from . import views
 
 router = routers.DefaultRouter()
-router.register(r'lecturer', LecturerView, basename='lecturer')
-router.register(r'student', StudentView, basename= 'student')
-router.register(r'module', ModuleView, basename = 'module')
-router.register(r'lecture', LectureView, basename='lecture')
-router.register(r'tutor', TutorView, basename = 'tutor')
-router.register(r'registration', RegistrationView, basename='registration')
+router.register(r'module', views.ModuleView, basename = 'module')
+router.register(r'lecture', views.LectureView, basename='lecture')
+router.register(r'tutor', views.TutorView, basename = 'tutor')
+router.register(r'registration', views.RegistrationView, basename='registration')
+router.register(r'semester', views.SemesterView, basename='semester')
+
 
 urlpatterns = [
     path('',include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_famework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_famework')),
+
+    path('lecturer/',views.lecturer_list,name='lecturer_list'),
+    path('lecturer/update/<int:pk>/',views.lecturer_detail, name = 'lecturer_detail'),
+    path('student/', views.student_list, name = 'student_list'),
+    path('student/update/<int:pk>/',views.student_detail, name='student_detail'),
 ]

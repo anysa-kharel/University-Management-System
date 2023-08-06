@@ -1,12 +1,12 @@
-// 
-
-
 
 import React, { useState } from 'react';
 import { Space, Typography, Card, Statistic } from 'antd';
 import { MdOutlineLibraryBooks } from 'react-icons/md';
+import AddCourse from './AddCourse';
 
 function Modules() {
+
+  
   const options = [
     { label: 'Semester-I', value: 'option1' },
     { label: 'Semester-II', value: 'option2' },

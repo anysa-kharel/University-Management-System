@@ -8,6 +8,7 @@ import Dashboardstudent from './components/Dashboard/Dashboardstudent';
 import Dashboardadmin from './components/Dashboard/Dashboardadmin';
 import Dashboardteacher from './components/Dashboard/Dashboardteacher';
 import AppRoutes from './components/pages/AppRoutes'
+import AddCourse from './components/pages/AddCourse'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
+   <Route exact path="/semester" element={<AddCourse/>}/>
 </Routes>
 
 

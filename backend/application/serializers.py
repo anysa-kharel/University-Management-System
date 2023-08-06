@@ -4,8 +4,7 @@ from .models import *
 class LecturerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lecturer
-        fields = ('lecturer_number', 'name', 'room_number')
-
+        fields = '__all__'
 
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,4 +33,9 @@ class TutorSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
+        fields = '__all__'
+
+class SemesterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Semester
         fields = '__all__'

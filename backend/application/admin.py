@@ -33,3 +33,7 @@ class RegistrationAdmin(admin.ModelAdmin):
     list = ('registration_id','student','module','registration_date')
 
 admin.site.register(Registration, RegistrationAdmin)
+
+
+admin.site.register(Semester)
+# admin.site.register(Department)
