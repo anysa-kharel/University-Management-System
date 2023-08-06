@@ -49,10 +49,19 @@ export default class AddLect extends Component {
     <h2 className="text-2xl font-semibold mb-4">Lecturer Information</h2>
 
     <form>
+
+
+    <div className="mb-4">
+            <label for="id" className="block text-sm font-medium text-gray-700">ID</label>
+            <input type="text" id="id" name="id" value={this.state.id} onChange={this.changeHandler} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-primary rounded-md p-2"/>
+        </div>
+        
         <div className="mb-4">
             <label for="lectNumber" className="block text-sm font-medium text-gray-700">Lecturer Number</label>
             <input type="text" id="lectNumber" name="lecturer_number" value={this.state.lecturer_number} onChange={this.changeHandler} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-primary rounded-md p-2"/>
         </div>
+
+       
 
         <div className="mb-4">
             <label for="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -66,9 +75,7 @@ export default class AddLect extends Component {
 
 
         <div className="flex justify-end">
-            {/* <button type="button" className="mr-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-300 border border-gray-300 rounded-md hover:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-200">
-                Cancel
-            </button> */}
+          
             <button type="submit" onClick={this.submitForm} className="px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md hover:bg-primary-focus focus:outline-none focus:ring focus:ring-indigo-300">
                 Save
             </button>

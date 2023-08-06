@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import AddLect from "./AddLect";
+import { Link } from 'react-router-dom';
 
 
 class LectTab extends Component{
@@ -27,6 +28,18 @@ fetchData(){
     this.fetchData();
     }
 
+    deleteData(id){
+      fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/',{
+          method:'DELETE',
+          body:JSON.stringify(this.state),
+      })
+      .then(response=>response)
+      .then((data)=>{
+          if(data){
+              this.fetchData();
+          }
+      });
+  }
 
 
     render()
@@ -36,9 +49,14 @@ fetchData(){
         const rows=lectData.map((e)=>
         <tr>
         {/* <th>1</th> */}
+        <td>{e.id}</td>
         <td>{e.lecturer_number}</td>
         <td>{e.name}</td>
         <td>{e.room_number}</td>
+        <td>
+                    <Link to={'/update/'+e.id} className="btn bg-primary text-white mr-2">Update</Link>
+                    <button onClick={()=>this.deleteData(e.id)} className="btn text-white bg-red-600">Delete</button>
+                </td>
       </tr>
 
 
@@ -53,10 +71,10 @@ fetchData(){
 <button className="btn  hover:bg-primary-focus bg-primary btn-primary " onClick={()=>window.my_modal_3.showModal()}>Add Lecturer</button>
  <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
  <form method="dialog" className="modal-box">
- {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+ 
  <p className="py-4"><AddLect/></p>
  <div className="modal-action">
- {/* if there is a button in form, it will close the modal */}
+
  <button className="btn">Close</button>
  </div>
  </form>
@@ -72,9 +90,11 @@ fetchData(){
     <thead>
       <tr>
         {/* <th></th> */}
+        <th>S.N.</th>
         <th>Lecturer No</th>
         <th>Name</th>
         <th>Room No</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -82,23 +102,6 @@ fetchData(){
 {rows}
 
 
-
-      {/* row 1 */}
-     
-      {/* row 2 */}
-      {/* <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr> */}
-      {/* row 3 */}
-      {/* <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr> */}
     </tbody>
   </table>
 </div>

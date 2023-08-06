@@ -12,6 +12,8 @@ import SemesterII from './components/pages/SemesterII'
 import SemesterIII from './components/pages/SemesterIII'
 import Modules from './components/pages/Modules'
 
+import UpdateLect from './components/UpdateLect'
+import UpdateStu from './components/UpdateStu'
 
 
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
    <Route path="/semester2" component={SemesterII} />
    <Route path="/semester3" component={SemesterIII} />
    
+   <Route exact path="/update/:id" element={<UpdateLect/>} />
+   <Route exact path="/updates/:id" element={<UpdateStu/>} />
 </Routes>
 
 

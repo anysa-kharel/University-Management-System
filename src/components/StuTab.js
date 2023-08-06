@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import AddStudent from './AddStudent';
+import { Link } from 'react-router-dom';
 
 
 class StuTab extends Component{
@@ -12,8 +13,9 @@ constructor(){
 }
 
 
+
 fetchData(){
-    fetch('http://127.0.0.1:8000/student')
+    fetch('http://127.0.0.1:8000/student/')
     .then(response=>response.json())
     .then((data)=>{
     this.setState({data:data});
@@ -27,6 +29,21 @@ fetchData(){
     this.fetchData();
     }
 
+    deleteData(id){
+      fetch('http://127.0.0.1:8000/student/update/'+id+'/',{
+          method:'DELETE',
+          body:JSON.stringify(this.state),
+      })
+      .then(response=>response)
+      .then((data)=>{
+          if(data){
+              this.fetchData();
+          }
+      });
+  }
+
+
+    
 
 
     render()
@@ -35,10 +52,13 @@ fetchData(){
         const lectData=this.state.data;
         const rows=lectData.map((e)=>
         <tr>
-        {/* <th>1</th> */}
+        <td>{e.student_id}</td>
         <td>{e.student_number}</td>
         <td>{e.name}</td>
-        {/* <td>{e.room_number}</td> */}
+        <td>
+                    <Link to={'/updates/'+e.student_id} className="btn bg-primary text-white mr-2">Update</Link>
+                    <button onClick={()=>this.deleteData(e.student_id)} className="btn text-white bg-red-600">Delete</button>
+                </td>
       </tr>
 
 
@@ -52,10 +72,10 @@ fetchData(){
              <button className="btn  hover:bg-primary-focus bg-primary btn-primary " onClick={()=>window.my_modal_3.showModal()}>Add Student</button>
               <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
               <form method="dialog" className="modal-box">
-              {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+             
               <p className="py-4"><AddStudent/></p>
               <div className="modal-action">
-              {/* if there is a button in form, it will close the modal */}
+           
               <button className="btn">Close</button>
               </div>
               </form>
@@ -72,10 +92,10 @@ fetchData(){
     {/* head */}
     <thead>
       <tr>
-        {/* <th></th> */}
+        <th>S.N.</th>
         <th>Student No</th>
         <th>Name</th>
-        {/* <th>Room No</th> */}
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
