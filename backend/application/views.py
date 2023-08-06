@@ -196,7 +196,7 @@ def form_details(request ,pk):
     try:
         form = Form.objects.filter(id = pk)
 
-    except Semester.DoesNotExist:
+    except Form.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         serializer = FormSerializer(form, many = True)
