@@ -87,7 +87,6 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.student} - Module: {self.module} - Date: {self.registration_date}"
-    
 
 class Form(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
