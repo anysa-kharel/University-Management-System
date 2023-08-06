@@ -1,6 +1,6 @@
 import React from 'react';
-import { FiBell } from 'react-icons/fi'; // Import the notification icon
-
+import { FiBell } from 'react-icons/fi';
+import { Badge } from 'antd';
 const Topbar = () => {
   return (
     <>
@@ -13,8 +13,9 @@ const Topbar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
-                  <FiBell className="h-6 w-6 text-white" /> {/* Replace the cart icon with the notification icon */}
-                  {/* <span className="badge badge-sm indicator-item">8</span> */}
+                <Badge count ={10}>
+                  <FiBell className="h-6 w-6 text-white" />
+                  </Badge>
                 </div>
               </label>
               <div

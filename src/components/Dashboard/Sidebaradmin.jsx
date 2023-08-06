@@ -5,19 +5,19 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { RiSoundModuleLine } from "react-icons/ri";
 import {PiStudent} from "react-icons/pi";
 import {GiTeacher} from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Sidebaradmin() {
 
   const menus = [
     { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "Student", link: "/", icon: PiStudent },
-    { name: "Modules", link: "/", icon: RiSoundModuleLine },
-    { name: "Teachers", link: "/", icon: GiTeacher, margin: true },
+    { name: "Student", link: "/stutab", icon: PiStudent },
+    { name: "Modules", link: "/modules", icon: RiSoundModuleLine },
+    { name: "Teachers", link: "/lectab", icon: GiTeacher, margin: true },
    
   ];
   const [open, setOpen] = useState(true);
-
+  const navigate = useNavigate()
   return (
    <section className='flex gap-6'>
    <div className={`bg-[#3e78b2] min-h-screen ${open ? 'w-72':'w-16'} duration-500 text-gray-100 px-4`}>

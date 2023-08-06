@@ -27,12 +27,20 @@ class Module(models.Model):
 #         return self.department_name
 
 class Semester(models.Model):
-    department_name = models.CharField(max_length=50)
     sem = models.IntegerField(primary_key=True)
-    module_code = models.ForeignKey(Module, on_delete=models.CASCADE,related_name='Semester_Module')
+    faculty = models.CharField(max_length=30)
+    module_code1 = models.ForeignKey(Module ,related_name='Semester_Module1', on_delete=models.CASCADE)
+    module_code2 = models.ForeignKey(Module ,related_name='Semester_Module2', on_delete=models.CASCADE)
+    module_code3 = models.ForeignKey(Module ,related_name='Semester_Module3', on_delete=models.CASCADE)
+    module_code4 = models.ForeignKey(Module ,related_name='Semester_Module4', on_delete=models.CASCADE)
+    module_code5 = models.ForeignKey(Module ,related_name='Semester_Module5', on_delete=models.CASCADE)
+    
+# address1 = models.ForeignKey(Address, verbose_name=_("Address1"),related_name="Address1", null=True, blank=True,on_delete=models.SET_NULL)
+
+# address2 = models.ForeignKey(Address, verbose_name=_("Address2"),related_name="Address2", null=True, blank=True,on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f"Semester: {self.sem},Department: {self.department_name}, Module: {self.module_code}"
+        return f"Semester: {self.sem}"
 
 
 
