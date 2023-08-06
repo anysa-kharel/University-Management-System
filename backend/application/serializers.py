@@ -39,3 +39,8 @@ class SemesterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Semester
         fields = '__all__'
+
+class FormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Form
+        fields = '__all__'
