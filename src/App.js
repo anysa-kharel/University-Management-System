@@ -8,6 +8,7 @@ import Dashboardstudent from './components/Dashboard/Dashboardstudent';
 import Dashboardadmin from './components/Dashboard/Dashboardadmin';
 import Dashboardteacher from './components/Dashboard/Dashboardteacher';
 import UpdateLect from './components/UpdateLect'
+import UpdateStu from './components/UpdateStu'
 
 
 const App = () => {
@@ -22,7 +23,8 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
-   <Route exact path="/update/:id" component={UpdateLect} />
+   <Route exact path="/update/:id" element={<UpdateLect/>} />
+   <Route exact path="/updates/:id" element={<UpdateStu/>} />
 </Routes>
 
    </>

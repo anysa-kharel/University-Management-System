@@ -31,6 +31,7 @@ export default class AddStudent extends Component {
         .then((data)=>console.log(data));
 
         this.setState({
+            
             student_number:'',
             name:''
         });
@@ -50,6 +51,11 @@ export default class AddStudent extends Component {
     <h2 className="text-2xl font-semibold mb-4">Student Information</h2>
 
     <form>
+    <div className="mb-4">
+            <label for="id" className="block text-sm font-medium text-gray-700">ID</label>
+            <input type="text" id="id" name="student_id" value={this.state.student_id} onChange={this.changeHandler} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-primary rounded-md p-2"/>
+        </div>
+
         <div className="mb-4">
             <label for="studentNumber" className="block text-sm font-medium text-gray-700">Student Number</label>
             <input type="text" id="studentNumber" name="student_number" value={this.state.student_number} onChange={this.changeHandler} className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-primary rounded-md p-2"/>

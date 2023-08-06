@@ -1,114 +1,123 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default class UpdateLect extends Component {
-  constructor() {
-    super();
-    this.state = {
-      id: '', // Initialize id in state
-      lecturer_number: '',
-      name: '',
-      room_number: '',
-    };
+function UpdateLect() {
+  const params = useParams();
 
-    this.changeHandler = this.changeHandler.bind(this);
-    this.submitForm = this.submitForm.bind(this);
-  }
 
-  componentDidMount() {
-   
-      this.fetchData();
- 
-  }
+  
+  const [state, setState] = useState({
+    id: `${params.id}`, // Initialize id in state
+    lecturer_number: '',
+    name: '',
+    room_number: '',
+  });
 
-  // Input Change Handler
-  changeHandler(event) {
-    this.setState({
+  
+
+
+  const fetchData = () => {
+    const id = params.id;
+    console.log(id)
+    
+    fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/')
+      .then((response) => response.json())
+      .then((data) => {
+        setState({
+          ...state,
+          lecturer_number: data.lecturer_number,
+          name: data.name,
+          room_number: data.room_number,
+        });
+      });
+  };
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const changeHandler = (event) => {
+    setState({
+      ...state,
       [event.target.name]: event.target.value,
     });
-  }
+    console.log(state)
+  };
 
-  // Submit Form
-  submitForm() {
-    var id=this.props.match.params.id;
+
+
+  const submitForm = () => {
+    const id = params.id;
     fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/', {
       method: 'PUT',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify(state),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     })
       .then((response) => response.json())
       .then((data) => console.log(data));
-  }
+  };
 
-  fetchData() {
-    var id=this.props.match.params.id;
-    fetch('http://127.0.0.1:8000/lecturer/update/'+id)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          lecturer_number: data.lecturer_number,
-          name: data.name,
-          room_number: data.room_number,
-        });
-      });
-      
-  }
+  useEffect(() => {
+    submitForm();
+  }, []);
 
-  render() {
-    return (
-      <>
-        <table className="table table-bordered">
-          <tbody>
-            <tr>
-              <th className="py-2">Lecturer Number</th>
-              <td className="py-2">
-                <input
-                  value={this.state.lecturer_number}
-                  name="lecturer_number"
-                  onChange={this.changeHandler}
-                  type="text"
-                  className="form-input"
-                />
-              </td>
-            </tr>
-            <tr>
-              <th className="py-2">Name</th>
-              <td className="py-2">
-                <input
-                  value={this.state.name}
-                  name="name"
-                  onChange={this.changeHandler}
-                  type="text"
-                  className="form-input"
-                />
-              </td>
-            </tr>
-            <tr>
-              <th className="py-2">Room Number</th>
-              <td className="py-2">
-                <input
-                  value={this.state.room_number}
-                  name="room_number"
-                  onChange={this.changeHandler}
-                  type="text"
-                  className="form-input"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td colSpan="2" className="py-2">
-                <button
-                  onClick={this.submitForm}
-                  className="bg-gray-800 text-white py-2 px-4 rounded"
-                >
-                  Submit
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </>
-    );
-  }
+
+
+ 
+  return (
+    <>
+      <table className="table table-bordered">
+        <tbody>
+          <tr>
+            <th className="py-2">Lecturer Number</th>
+            <td className="py-2">
+              <input
+                value={state.lecturer_number}
+                name="lecturer_number"
+                onChange={changeHandler}
+                type="text"
+                className="form-input"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="py-2">Name</th>
+            <td className="py-2">
+              <input
+                value={state.name}
+                name="name"
+                onChange={changeHandler}
+                type="text"
+                className="form-input"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th className="py-2">Room Number</th>
+            <td className="py-2">
+              <input
+                value={state.room_number}
+                name="room_number"
+                onChange={changeHandler}
+                type="text"
+                className="form-input"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2" className="py-2">
+              <Link to="/lecttab" onClick={submitForm} className="bg-gray-800 text-white py-2 px-4 rounded">Submit</Link>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
 }
+
+export default UpdateLect;
