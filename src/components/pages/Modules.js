@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Space, Typography, Card, Statistic } from 'antd';
 import { MdOutlineLibraryBooks } from 'react-icons/md';
-import AddCourse from './AddCourse';
+
 
 function Modules() {
 
@@ -34,21 +34,18 @@ function Modules() {
          <Computer
           icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
           title={"Computer Faculty"}
-          options={options}
           selectedOption={selectedOption}
           onChange={handleOptionChange}
         />
          <Geomatics
           icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
           title={"Geomatics Faculty"}
-          options={options}
           selectedOption={selectedOption}
           onChange={handleOptionChange}
         />
          <Automobile
           icon={<MdOutlineLibraryBooks style={{ color: "#2a5279", borderRadius: 20, fontSize: 40, padding: 8 }} />}
           title={"Automobile Faculty"}
-          options={options}
           selectedOption={selectedOption}
           onChange={handleOptionChange}
         />

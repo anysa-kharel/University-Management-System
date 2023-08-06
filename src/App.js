@@ -8,7 +8,11 @@ import Dashboardstudent from './components/Dashboard/Dashboardstudent';
 import Dashboardadmin from './components/Dashboard/Dashboardadmin';
 import Dashboardteacher from './components/Dashboard/Dashboardteacher';
 import AppRoutes from './components/pages/AppRoutes'
-import AddCourse from './components/pages/AddCourse'
+import SemesterI from './components/pages/SemesterI'
+import SemesterII from './components/pages/SemesterII'
+import SemesterIII from './components/pages/SemesterIII'
+import Modules from './components/pages/Modules'
+
 
 
 const App = () => {
@@ -23,7 +27,11 @@ const App = () => {
     <Route exact path="/2" element={<Dashboardadmin/>}/>
    <Route exact path="/1" element={<Dashboardstudent/>}/>
    <Route exact path="/3" element={<Dashboardteacher/>}/>
-   <Route exact path="/semester" element={<AddCourse/>}/>
+   <Route exact path="/" component={Modules} />
+   <Route path="/semester1" component={SemesterI} />
+   <Route path="/semester2" component={SemesterII} />
+   <Route path="/semester3" component={SemesterIII} />
+   
 </Routes>
 
 
