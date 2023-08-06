@@ -87,3 +87,15 @@ class Registration(models.Model):
 
     def __str__(self):
         return f"{self.student} - Module: {self.module} - Date: {self.registration_date}"
+    
+
+class Form(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
+    module_code1 = models.ForeignKey(Module ,related_name='Form_Module1', on_delete=models.CASCADE)
+    module_code2 = models.ForeignKey(Module ,related_name='Form_Module2', on_delete=models.CASCADE)
+    module_code3 = models.ForeignKey(Module ,related_name='Form_Module3', on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f"{self.student}"

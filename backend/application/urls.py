@@ -18,4 +18,7 @@ urlpatterns = [
     path('lecturer/update/<int:pk>/',views.lecturer_detail, name = 'lecturer_detail'),
     path('student/', views.student_list, name = 'student_list'),
     path('student/update/<int:pk>/',views.student_detail, name='student_detail'),
+
+    path('form/',views.form_list,name='form_list'),
+    path('form/<int:pk>',views.form_details,name='form_details'),
 ]
