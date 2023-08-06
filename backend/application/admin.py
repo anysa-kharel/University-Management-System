@@ -37,3 +37,7 @@ admin.site.register(Registration, RegistrationAdmin)
 
 admin.site.register(Semester)
 # admin.site.register(Department)
+class FormAdmin(admin.ModelAdmin):
+    list = ('student_name', 'module_code1')
+
+admin.site.register(Form)

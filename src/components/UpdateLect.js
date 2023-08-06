@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-function UpdateStu() {
+function UpdateLect() {
   const params = useParams();
 
 
   
   const [state, setState] = useState({
     id: `${params.id}`, // Initialize id in state
-    student_number: '',
+    lecturer_number: '',
     name: '',
-    
+    room_number: '',
   });
 
   
@@ -21,17 +21,15 @@ function UpdateStu() {
     const id = params.id;
     console.log(id)
     
-    fetch('http://127.0.0.1:8000/student/update/'+id+'/')
+    fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/')
       .then((response) => response.json())
       .then((data) => {
         setState({
           ...state,
-          student_number: data.student_number,
+          lecturer_number: data.lecturer_number,
           name: data.name,
-          
-          
+          room_number: data.room_number,
         });
-        console.log(data.student_number)
       });
   };
 
@@ -52,8 +50,7 @@ function UpdateStu() {
 
   const submitForm = () => {
     const id = params.id;
-    console.log(id)
-    fetch('http://127.0.0.1:8000/student/update/'+id+'/', {
+    fetch('http://127.0.0.1:8000/lecturer/update/'+id+'/', {
       method: 'PUT',
       body: JSON.stringify(state),
       headers: {
@@ -64,9 +61,9 @@ function UpdateStu() {
       .then((data) => console.log(data));
   };
 
-  // useEffect(() => {
-  //   submitForm();
-  // }, []);
+  useEffect(() => {
+    submitForm();
+  }, []);
 
 
 
@@ -76,10 +73,10 @@ function UpdateStu() {
       <table className="table table-bordered">
         <tbody>
           <tr>
-            <th className="py-2">Student Number</th>
+            <th className="py-2">Lecturer Number</th>
             <td className="py-2">
               <input
-                value={state.student_number}
+                value={state.lecturer_number}
                 name="lecturer_number"
                 onChange={changeHandler}
                 type="text"
@@ -99,10 +96,21 @@ function UpdateStu() {
               />
             </td>
           </tr>
-       
+          <tr>
+            <th className="py-2">Room Number</th>
+            <td className="py-2">
+              <input
+                value={state.room_number}
+                name="room_number"
+                onChange={changeHandler}
+                type="text"
+                className="form-input"
+              />
+            </td>
+          </tr>
           <tr>
             <td colSpan="2" className="py-2">
-              <Link to="/stutab" onClick={submitForm} className="bg-gray-800 text-white py-2 px-4 rounded">Submit</Link>
+              <Link to="/lecttab" onClick={submitForm} className="bg-gray-800 text-white py-2 px-4 rounded">Submit</Link>
             
             </td>
           </tr>
@@ -112,4 +120,4 @@ function UpdateStu() {
   );
 }
 
-export default UpdateStu;
+export default UpdateLect;
