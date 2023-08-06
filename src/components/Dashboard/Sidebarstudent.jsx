@@ -10,10 +10,9 @@ import { Link } from "react-router-dom";
 function Sidebarstudent() {
 
   const menus = [
-    { name: "Dashboard", link: "/", icon: MdOutlineDashboard },
-    { name: "Student", link: "/", icon: PiStudent },
-    { name: "Modules", link: "/", icon: RiSoundModuleLine },
-    { name: "Teachers", link: "/", icon: GiTeacher, margin: true },
+    { name: "Dashboard", link: "#", icon: MdOutlineDashboard },
+    { name: "Modules", link: "/modules", icon: RiSoundModuleLine },
+    { name: "Teachers", link: "#", icon: GiTeacher, margin: true },
    
   ];
   const [open, setOpen] = useState(true);

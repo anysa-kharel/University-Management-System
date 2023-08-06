@@ -12,7 +12,7 @@ function Sidebaradmin() {
   const menus = [
     { name: "Dashboard", link: "#", icon: MdOutlineDashboard },
     { name: "Student", link: "/stutab", icon: PiStudent },
-    { name: "Modules", link: "/modules", icon: RiSoundModuleLine },
+    { name: "Modules", link: "#", icon: RiSoundModuleLine },
     { name: "Teachers", link: "/lecttab", icon: GiTeacher, margin: true },
    
   ];
